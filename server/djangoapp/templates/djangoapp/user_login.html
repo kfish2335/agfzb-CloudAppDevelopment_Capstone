@@ -1,0 +1,16 @@
+{% extends './comp/base.html' %}
+
+{% block content %}
+<form action="{% url 'djangoapp:login' %}"  method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="username" class="form-control"><b>User Name</b></label>
+      <input type="text" class="form-control" placeholder="Enter User Name: " name="username" required>
+    </div>
+    <div class="mb-3">
+        <label for="psw" class="form-control"><b>Password</b></label>
+        <input type="password" class="form-control" placeholder="Enter Password: " name="psw" required>
+    </div>
+    <button class="btn btn-primary" type="submit">Login</button>
+  </form>
+{% endblock %}

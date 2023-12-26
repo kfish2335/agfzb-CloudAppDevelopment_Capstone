@@ -1,11 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    {% load static %}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-    <body>
-    <!--Add a registration form here -->
-    </body>
-</html>
+{% extends './comp/base.html' %}
+
+{% block content %}
+
+<form action="{% url 'djangoapp:login' %}"  method="post">
+    {% csrf_token %}
+    <h1>Sign Up</h1>
+    <hr>
+    <div class="mb-3">
+        <label for="username"  class="form-control"><b>User Name</b></label>
+        <input type="text"  class="form-control" placeholder="Enter User Name: " name="username" required>
+    </div>
+    <div class="mb-3">
+        <label for="firstname" class="form-control"><b>First Name</b></label>
+        <input type="text" class="form-control" placeholder="Enter First Name: " name="firstname" required>
+    </div>
+    <div class="mb-3">
+        <label for="lastname" class="form-control"><b>Last Name</b></label>
+        <input type="text" class="form-control" placeholder="Enter Last Name: " name="lastname" required>
+    </div>
+    <div class="mb-3">
+          <label for="psw" class="form-control"><b>Password</b></label>
+          <input type="password" class="form-control" placeholder="Enter Password: " name="psw" required>
+    </div>
+    <button class="btn btn-primary" type="submit">Sign Up</button>
+  </form>
+{% endblock %}
